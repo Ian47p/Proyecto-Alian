@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltix Electronics - Tu Tienda de Tecnología</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b8b8b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            background: linear-gradient(90deg, #00d4ff, #0066ff);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #00d4ff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .product-card p {
+            color: #b8b8b8;
+            text-align: center;
+        }
+
+        .features {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .contact h2 {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-button:hover {
+            background: #20ba5a;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VOLTIX</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>VOLTIX ELECTRONICS</h1>
+        <p>Tu destino para la mejor tecnología. Smartphones, laptops, accesorios y más. Calidad garantizada y los mejores precios del mercado.</p>
+        <a href="#productos" class="cta-button">Ver Productos</a>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Envío Rápido</h3>
+                <p>Entrega express en 24-48 horas</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <h3>Garantía Total</h3>
+                <p>Todos los productos con garantía oficial</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💳</div>
+                <h3>Pago Seguro</h3>
+                <p>Múltiples formas de pago disponibles</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>Atención 24/7</h3>
+                <p>Soporte técnico siempre disponible</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="products">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-icon">📱</div>
+                <h3>Smartphones</h3>
+                <p>Las últimas marcas: iPhone, Samsung, Xiaomi, Huawei y más. Modelos nuevos y reacondicionados.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">💻</div>
+                <h3>Laptops</h3>
+                <p>Para trabajo, gaming y estudio. Dell, HP, Lenovo, Asus. Todas las especificaciones.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🎧</div>
+                <h3>Audio</h3>
+                <p>Auriculares, parlantes, soundbars. Marcas premium como Sony, JBL, Bose.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">⌚</div>
+                <h3>Wearables</h3>
+                <p>Smartwatches y fitness trackers. Apple Watch, Samsung Galaxy Watch, Xiaomi Band.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">📷</div>
+                <h3>Cámaras</h3>
+                <p>Cámaras digitales, GoPro, drones. Captura cada momento con calidad profesional.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🔌</div>
+                <h3>Accesorios</h3>
+                <p>Cargadores, cables, fundas, protectores. Todo lo que necesitas para tus dispositivos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <h2>Contáctanos</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>ventas@voltixelectronics.com</span>
+            </div>
+            <div class="contact-item">
+                <span>📍</span>
+                <span>Tu dirección aquí</span>
+            </div>
+            <div class="contact-item">
+                <span>🕐</span>
+                <span>Lun - Sáb: 9:00 AM - 8:00 PM</span>
+            </div>
+            <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">
+                💬 Chatea con nosotros en WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Voltix Electronics. Todos los derechos reservados.</p>
+        <p>Tecnología de confianza para tu vida digital</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
