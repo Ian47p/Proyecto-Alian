@@ -1,4 +1,4 @@
-# Voltix Electronics Website
+# AlIan Tech Website
 
 Welcome to the Voltix Electronics Website project! This project is designed to showcase a range of electronic products and provide users with a seamless browsing experience.
 
